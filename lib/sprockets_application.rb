@@ -13,7 +13,11 @@ module SprocketsApplication
     end
     
     def generate_asset!
-      output_file.save_to(File.join(RAILS_ROOT, "public", "sprockets.js"))
+      output_file.save_to(asset_path)
+    end
+
+    def asset_path
+      File.join(Rails.public_path, "sprockets.js")
     end
 
     protected
