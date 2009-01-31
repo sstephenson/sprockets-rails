@@ -8,8 +8,12 @@ module SprocketsApplication
       output_file.to_s
     end
     
-    def generate_asset!
+    def install_script
       output_file.save_to(asset_path)
+    end
+    
+    def install_assets
+      secretary.install_assets
     end
 
     protected
