@@ -5,11 +5,11 @@ module SprocketsApplication
     end
     
     def source
-      output_file.to_s
+      concatenation.to_s
     end
     
     def install_script
-      output_file.save_to(asset_path)
+      concatenation.save_to(asset_path)
     end
     
     def install_assets
@@ -25,9 +25,9 @@ module SprocketsApplication
         YAML.load(IO.read(File.join(RAILS_ROOT, "config", "sprockets.yml"))) || {}
       end
 
-      def output_file
+      def concatenation
         secretary.reset! unless source_is_unchanged?
-        secretary.output_file
+        secretary.concatenation
       end
 
       def asset_path
