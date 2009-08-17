@@ -1,4 +1,7 @@
 module SprocketsApplication
+  mattr_accessor :use_page_caching
+  self.use_page_caching = true
+  
   class << self
     def routes(map)
       map.resource(:sprockets)
